@@ -1,7 +1,15 @@
-function page() {
-  console.log("page rendered");
+import { Hello } from "./hello";
 
-  return <div>page</div>;
+function page() {
+  console.log("Hello from server component");
+
+  return (
+    <div>
+      <h1>Hello</h1>
+
+      <Hello />
+    </div>
+  );
 }
 
 export default page;
