@@ -1,11 +1,11 @@
 import { Hello } from "./hello";
 
 function page() {
-  console.log("Hello from server component");
+  console.log("server component");
 
   return (
-    <div>
-      <h1>Hello</h1>
+    <div className="bg-gray-900 p-16">
+      <h1 className="my-4 text-2xl font-black">Hello from server component</h1>
 
       <Hello />
     </div>

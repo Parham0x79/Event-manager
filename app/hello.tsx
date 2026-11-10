@@ -1,7 +1,11 @@
 "use client";
 
 export const Hello = () => {
-  console.log("page rendered");
+  console.log("Client component");
 
-  return <div>hello from client component!</div>;
+  return (
+    <div className="text-xl italic font-extralight">
+      hello from client component!
+    </div>
+  );
 };
