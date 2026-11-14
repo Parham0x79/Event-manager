@@ -1,9 +1,11 @@
+import EventCard from "@/components/EventCard";
 import ExploreBtn from "@/components/ExploreBtn";
 import Shuffle from "@/components/ui/Shuffle";
+import { events } from "@/lib/constants";
 
 function page() {
   return (
-    <section className="">
+    <section>
       <Shuffle
         className="font-black font-schibsted-grotesk text-2xl max-sm:text-3xl"
         text={`The Hub for Every Dev`}
@@ -24,8 +26,8 @@ function page() {
         respectReducedMotion={true}
         maxDelay={0}
         scrambleCharset=""
-        loop={false}
-        loopDelay={0}
+        loop={true}
+        loopDelay={3}
       />
       <Shuffle
         className="font-black font-schibsted-grotesk text-2xl max-sm:text-3xl sm:ml-19"
@@ -47,15 +49,25 @@ function page() {
         respectReducedMotion={true}
         maxDelay={0}
         scrambleCharset=""
-        loop={false}
-        loopDelay={0}
+        loop={true}
+        loopDelay={3.5}
       />
 
-      <p className="mt-6 sm:m-12 text-sm sm:text-lg font-martian-mono font-extralight text-center italic">
+      <p className="mt-6 sm:m-12 text-sm sm:text-lg font-martian-mono font-extralight italic">
         Hackatons, Meetups and Conferences, All in one place
       </p>
 
       <ExploreBtn />
+
+      <div className="mt-20 space-y-9">
+        <h3>Featured Events</h3>
+
+        <ul className="events">
+          {events.map((event) => (
+            <EventCard key={events.indexOf(event)} {...event} />
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }

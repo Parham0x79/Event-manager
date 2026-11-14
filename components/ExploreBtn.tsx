@@ -6,7 +6,7 @@ import "../app/globals.css";
 const ExploreBtn = () => {
   return (
     <button type="button" className="explore-btn">
-      <a href="#events" className="flex-center gap-2 text-center w-full">
+      <a href="#events" className="flex-center gap-2 text w-full">
         Explore Events
       </a>
 
