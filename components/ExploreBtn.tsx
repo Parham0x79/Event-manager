@@ -15,6 +15,7 @@ const ExploreBtn = () => {
         alt="arrow-down"
         width={18}
         height={18}
+        className="w-auto h-auto"
       />
     </button>
   );
