@@ -67,6 +67,7 @@ const EventCard = ({
           <Image
             src={"/icons/calendar.svg"}
             alt="date"
+            className="w-auto h-auto"
             width={14}
             height={14}
             className="w-auto h-auto"
