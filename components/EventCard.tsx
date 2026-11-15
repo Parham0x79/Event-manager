@@ -45,6 +45,7 @@ const EventCard = ({
         className="poster"
         width={410}
         height={300}
+        loading="eager"
       />
 
       <div className="flex flex-row gap-2">
@@ -70,7 +71,6 @@ const EventCard = ({
             className="w-auto h-auto"
             width={14}
             height={14}
-            className="w-auto h-auto"
           />
           <p>{date}</p>
         </div>
