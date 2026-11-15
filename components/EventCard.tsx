@@ -1,5 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+// import posthog from "posthog-js";
+import posthog from "posthog-js/dist/module.no-external";
+import { eventManagerLogger } from "@/lib/posthog-logger";
 
 const EventCard = ({
   title,
@@ -16,8 +21,24 @@ const EventCard = ({
   date: string;
   time: string;
 }) => {
+  const handleEventCardClick = () => {
+    if (
+      process.env.NEXT_PUBLIC_POSTHOG_KEY &&
+      process.env.NEXT_PUBLIC_POSTHOG_HOST
+    ) {
+      posthog.capture("event_card_selected", { event_slug: slug });
+      eventManagerLogger.info("event catalogue card selected", {
+        event_slug: slug,
+      });
+    }
+  };
+
   return (
-    <Link href={`/events/${slug}`} id="event-card">
+    <Link
+      href={`/events/${slug}`}
+      id="event-card"
+      onClick={handleEventCardClick}
+    >
       <Image
         src={image}
         alt={`event-${title}`}
@@ -49,6 +70,7 @@ const EventCard = ({
             className="w-auto h-auto"
             width={14}
             height={14}
+            className="w-auto h-auto"
           />
           <p>{date}</p>
         </div>
