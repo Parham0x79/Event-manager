@@ -59,7 +59,7 @@ function page() {
 
       <ExploreBtn />
 
-      <div className="mt-20 space-y-9">
+      <div className="mt-20 space-y-9" id="events">
         <h3>Featured Events</h3>
 
         <ul className="events">
