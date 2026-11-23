@@ -32,7 +32,9 @@ function normalizeDate(value: string): string {
   const dateOnly = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
   if (dateOnly) {
     const [, year, month, day] = dateOnly;
-    const date = new Date(Date.UTC(Number(year), Number(month) - 1, Number(day)));
+    const date = new Date(
+      Date.UTC(Number(year), Number(month) - 1, Number(day)),
+    );
     if (
       date.getUTCFullYear() !== Number(year) ||
       date.getUTCMonth() !== Number(month) - 1 ||
@@ -115,7 +117,9 @@ eventSchema.pre("save", function () {
   if (this.isNew || this.isModified("title")) {
     const slug = createSlug(this.title);
     if (!slug) {
-      throw new Error("Event title must contain characters usable in a URL slug.");
+      throw new Error(
+        "Event title must contain characters usable in a URL slug.",
+      );
     }
     this.slug = slug;
   }
@@ -125,7 +129,6 @@ eventSchema.pre("save", function () {
   this.time = normalizeTime(this.time);
 });
 
-const Event =
-  models.Event ?? model<EventDocument>("Event", eventSchema);
+const Event = models.Event ?? model<EventDocument>("Event", eventSchema);
 
 export default Event;
